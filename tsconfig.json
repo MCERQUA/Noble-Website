@@ -23,12 +23,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": [
-    "node_modules",
-    "components/external/**/*",
-    "components/seo/__tests__/**/*",
-    "components/business/TeamMember.tsx",
-    "components/business/ContactForm.tsx",
-    "components/business/QuoteRequestForm.tsx"
-  ]
+  "exclude": ["node_modules"]
 }

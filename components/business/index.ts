@@ -1,6 +1,7 @@
 // Form Components
-export { ContactForm } from './ContactForm'
-export type { ContactFormData, ContactFormProps } from './ContactForm'
+// ContactForm is not used in Noble Insulation - commented out to fix build
+// export { ContactForm } from './ContactForm'
+// export type { ContactFormData, ContactFormProps } from './ContactForm'
 export { FormField } from './FormField'
 export { TextAreaField } from './TextAreaField'
 export { SelectField } from './SelectField'
@@ -15,5 +16,6 @@ export { ClickToCall } from './ClickToCall'
 
 // Visual Components
 export { BeforeAfterGallery } from './BeforeAfterGallery'
-export { TeamMember } from './TeamMember'
+// TeamMember is not used in Noble Insulation - commented out to fix build
+// export { TeamMember } from './TeamMember'
 export { TestimonialCard } from './TestimonialCard'
