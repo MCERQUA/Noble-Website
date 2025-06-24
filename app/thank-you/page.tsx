@@ -14,7 +14,7 @@ export default function ThankYouPage() {
       <div className="max-w-md w-full text-center">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Thank You!</h1>
         <p className="text-lg text-gray-600 mb-8">
-          We've received your message and will get back to you within 24 hours.
+          We&apos;ve received your message and will get back to you within 24 hours.
         </p>
         <p className="text-gray-600 mb-8">
           For immediate assistance, please call us at{' '}
