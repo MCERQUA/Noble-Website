@@ -9,10 +9,11 @@ export interface StructuredDataConfig {
   phone: string
   email: string
   address: {
-    street: string
-    city: string
-    state: string
-    zip: string
+    streetAddress?: string
+    addressLocality?: string
+    addressRegion?: string
+    postalCode?: string
+    addressCountry?: string
   }
   geo?: {
     latitude: number
@@ -39,15 +40,21 @@ export function getBusinessStructuredData(): StructuredDataConfig {
     url,
     phone,
     email,
-    address,
-    logo: `${url}/logo.png`, // Update with actual logo path
-    image: `${url}/business-image.jpg`, // Update with actual image path
-    priceRange: '$$', // Adjust based on business
+    address: {
+      streetAddress: address.street,
+      addressLocality: address.city,
+      addressRegion: address.state,
+      postalCode: address.zip,
+      addressCountry: 'US'
+    },
+    logo: `${url}/images/noble-insulation-logo.svg`,
+    image: `${url}/images/hero-background.png`,
+    priceRange: '$$',
     openingHours,
-    // Add geo coordinates for your business location
+    // Richmond, CA coordinates
     geo: {
-      latitude: 33.4484, // Phoenix, AZ coordinates - update with actual
-      longitude: -112.0740
+      latitude: 37.9358,
+      longitude: -122.3477
     }
   }
 }
@@ -114,13 +121,13 @@ export function generateArticleSchema(article: {
       name: siteConfig.name,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteConfig.url}/logo.png`
+        url: `${siteConfig.url}/images/noble-insulation-logo.svg`
       }
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': article.url.startsWith('http') ? article.url : `${siteConfig.url}${article.url}`
     },
-    image: article.image || `${siteConfig.url}/default-article-image.jpg`
+    image: article.image || `${siteConfig.url}/images/hero-background.png`
   }
 }
