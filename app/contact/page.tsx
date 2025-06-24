@@ -1,6 +1,3 @@
-"use client"
-
-import { useState } from "react"
 import { Metadata } from "next"
 import { Hero } from "@/components/sections/Hero"
 import { Card } from "@/components/ui/Card"
@@ -12,47 +9,6 @@ import { ContactStructuredData } from "@/components/seo/ContactStructuredData"
 // Metadata is handled in the metadata.ts file
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    contact: "",
-    message: ""
-  })
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    
-    const form = e.currentTarget
-    const formData = new FormData(form)
-    
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString()
-      })
-      
-      if (response.ok) {
-        alert("Thank you for your message! We'll get back to you soon.")
-        setFormData({
-          firstName: "",
-          contact: "",
-          message: ""
-        })
-      } else {
-        alert("There was an error submitting your form. Please try again.")
-      }
-    } catch (error) {
-      alert("There was an error submitting your form. Please try again.")
-    }
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
   return (
     <>
       <ContactStructuredData />
@@ -78,7 +34,7 @@ export default function ContactPage() {
                   method="POST"
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
-                  onSubmit={handleSubmit} 
+                  action="/thank-you"
                   className="space-y-6"
                 >
                   <input type="hidden" name="form-name" value="contact" />
@@ -96,8 +52,6 @@ export default function ContactPage() {
                       type="text"
                       id="firstName"
                       name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     />
                   </div>
@@ -111,8 +65,6 @@ export default function ContactPage() {
                       id="contact"
                       name="contact"
                       required
-                      value={formData.contact}
-                      onChange={handleChange}
                       placeholder="555-123-4567 or email@example.com"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     />
@@ -127,8 +79,6 @@ export default function ContactPage() {
                       name="message"
                       rows={5}
                       required
-                      value={formData.message}
-                      onChange={handleChange}
                       placeholder="Tell us about your insulation project..."
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     />
@@ -147,27 +97,27 @@ export default function ContactPage() {
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Contact Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-start">
-                    <Phone className="h-5 w-5 text-primary mr-3 mt-1" />
+                    <Phone className="h-5 w-5 text-primary-500 mr-3 mt-1" />
                     <div>
                       <p className="font-medium">Phone</p>
-                      <a href={`tel:${siteConfig.phone}`} className="text-gray-600 hover:text-primary">
+                      <a href={`tel:${siteConfig.phone}`} className="text-gray-600 hover:text-primary-500">
                         {siteConfig.phone}
                       </a>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <Mail className="h-5 w-5 text-primary mr-3 mt-1" />
+                    <Mail className="h-5 w-5 text-primary-500 mr-3 mt-1" />
                     <div>
                       <p className="font-medium">Email</p>
-                      <a href={`mailto:${siteConfig.email}`} className="text-gray-600 hover:text-primary">
+                      <a href={`mailto:${siteConfig.email}`} className="text-gray-600 hover:text-primary-500">
                         {siteConfig.email}
                       </a>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <MapPin className="h-5 w-5 text-primary mr-3 mt-1" />
+                    <MapPin className="h-5 w-5 text-primary-500 mr-3 mt-1" />
                     <div>
                       <p className="font-medium">Address</p>
                       <p className="text-gray-600">
