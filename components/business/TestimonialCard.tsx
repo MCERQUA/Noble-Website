@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils/cn'
+import Image from 'next/image'
 
 export interface TestimonialCardProps {
   /** Customer name */
@@ -123,9 +124,11 @@ export function TestimonialCard({
         <div className="flex items-center gap-3">
           {/* Avatar */}
           {avatar ? (
-            <img
+            <Image
               src={avatar}
-              alt={`${name}'s avatar`}
+              alt={`${name}&apos;s avatar`}
+              width={variant === 'detailed' ? 64 : variant === 'compact' ? 40 : 48}
+              height={variant === 'detailed' ? 64 : variant === 'compact' ? 40 : 48}
               className={cn(
                 avatarSizes[variant],
                 'rounded-full object-cover'
@@ -177,7 +180,7 @@ export function TestimonialCard({
           variant === 'detailed' && 'text-lg leading-relaxed'
         )}
       >
-        "{content}"
+        &ldquo;{content}&rdquo;
       </blockquote>
 
       {/* Footer */}

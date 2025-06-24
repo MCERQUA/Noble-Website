@@ -84,7 +84,7 @@ export function BusinessHours({
   className,
   currentTime,
 }: BusinessHoursProps) {
-  const now = currentTime || new Date()
+  const now = useMemo(() => currentTime || new Date(), [currentTime])
   const currentDay = DAYS_OF_WEEK[now.getDay()]
 
   const { isOpen, currentDayHours } = useMemo(() => {

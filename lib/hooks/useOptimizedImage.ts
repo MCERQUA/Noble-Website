@@ -35,6 +35,8 @@ export function useOptimizedImage({
       return;
     }
 
+    const element = ref.current; // Capture the current value
+    
     const observer = createLazyLoadObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -48,12 +50,12 @@ export function useOptimizedImage({
     );
 
     if (observer) {
-      observer.observe(ref.current);
+      observer.observe(element);
     }
 
     return () => {
-      if (observer && ref.current) {
-        observer.unobserve(ref.current);
+      if (observer && element) {
+        observer.unobserve(element);
       }
     };
   }, [lazy, threshold]);
