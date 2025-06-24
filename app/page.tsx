@@ -5,7 +5,7 @@ import { StatsSection } from "@/components/sections/StatsSection"
 import { CompanyHighlights } from "@/components/sections/CompanyHighlights"
 import { TestimonialSection } from "@/components/sections/TestimonialSection"
 import { siteConfig } from "@/config/site.config"
-import { BreadcrumbSchema, MetaTags } from "@/components/seo"
+import { BreadcrumbSchema } from "@/components/seo"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {

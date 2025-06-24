@@ -22,7 +22,7 @@ export async function getDynamicPaths(): Promise<SitemapLocation[]> {
         path: `/services/${service.slug}`,
         priority: 0.8,
         changefreq: 'weekly',
-        lastmod: service.lastModified || new Date().toISOString(),
+        lastmod: new Date().toISOString(),
       })
     }
   })
@@ -35,7 +35,7 @@ export async function getDynamicPaths(): Promise<SitemapLocation[]> {
         path: `/blog/${post.slug}`,
         priority: 0.6,
         changefreq: 'monthly',
-        lastmod: post.lastModified || post.date || new Date().toISOString(),
+        lastmod: new Date().toISOString(),
       })
     }
   })
