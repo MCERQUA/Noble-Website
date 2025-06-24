@@ -1,16 +1,19 @@
 import { Hero } from "@/components/sections/Hero"
 import { ServiceGrid } from "@/components/sections/ServiceGrid"
 import { CTASection } from "@/components/sections/CTASection"
+import { StatsSection } from "@/components/sections/StatsSection"
+import { CompanyHighlights } from "@/components/sections/CompanyHighlights"
+import { TestimonialSection } from "@/components/sections/TestimonialSection"
 import { siteConfig } from "@/config/site.config"
 import { BreadcrumbSchema, MetaTags } from "@/components/seo"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} - Professional Local Services`,
-  description: "Quality professional services you can trust. Serving the local area since 2010 with reliable residential, commercial, and emergency services.",
+  title: `${siteConfig.name} - ${siteConfig.tagline}`,
+  description: siteConfig.description,
   openGraph: {
-    title: `${siteConfig.name} - Professional Local Services`,
-    description: "Quality professional services you can trust. Serving the local area since 2010 with reliable residential, commercial, and emergency services.",
+    title: `${siteConfig.name} - ${siteConfig.tagline}`,
+    description: siteConfig.description,
     url: siteConfig.url,
     type: "website",
   },
@@ -25,22 +28,29 @@ export default function HomePage() {
         ]}
       />
       <Hero
-        title="Professional Local Services You Can Trust"
-        subtitle="Quality Service Since 2010"
-        description="We provide reliable, professional services to help solve your needs. With years of experience and a commitment to excellence, we're here to help."
-        primaryButtonText="Get Free Quote"
-        primaryButtonHref="/contact"
-        secondaryButtonText="Our Services"
+        title="18 Years of Insulation Quality, Experience, and Expertise"
+        subtitle=""
+        description="Serving the San Francisco Bay Area and Northern California regions with a speciality in Spray Foam Insulation."
+        primaryButtonText="Call for a free estimate"
+        primaryButtonHref={`tel:${siteConfig.phone}`}
+        secondaryButtonText="View Services"
         secondaryButtonHref="/services"
+        backgroundImage="/images/hero-background.png"
       />
+      
+      <StatsSection />
       
       <ServiceGrid />
       
+      <CompanyHighlights />
+      
+      <TestimonialSection />
+      
       <CTASection
         title="Ready to Get Started?"
-        description="Contact us today for a free consultation and quote."
-        buttonText="Contact Us"
-        buttonHref="/contact"
+        description="Contact us today for a free consultation and insulation quote."
+        buttonText="Call for a free estimate"
+        buttonHref={`tel:${siteConfig.phone}`}
       />
     </>
   )

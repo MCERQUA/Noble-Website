@@ -1,16 +1,18 @@
 import { Metadata } from "next"
-import { ServiceGrid } from "@/components/sections/ServiceGrid"
 import { Hero } from "@/components/sections/Hero"
 import { CTASection } from "@/components/sections/CTASection"
+import { ServicesList } from "@/components/sections/ServicesList"
+import { ServiceAreas } from "@/components/sections/ServiceAreas"
+import { ServiceTestimonials } from "@/components/sections/ServiceTestimonials"
 import { BreadcrumbSchema, FAQSchema } from "@/components/seo"
 import { siteConfig } from "@/config/site.config"
 
 export const metadata: Metadata = {
-  title: "Our Services | Local Service Company",
-  description: "Explore our range of professional services for residential and commercial needs.",
+  title: `Insulation Services | ${siteConfig.name}`,
+  description: "Professional spray foam, fiberglass, cellulose, and other insulation services in the San Francisco Bay Area. Free estimates available.",
   openGraph: {
-    title: "Our Services | Local Service Company",
-    description: "Explore our range of professional services for residential and commercial needs.",
+    title: `Insulation Services | ${siteConfig.name}`,
+    description: "Professional spray foam, fiberglass, cellulose, and other insulation services in the San Francisco Bay Area. Free estimates available.",
     url: `${siteConfig.url}/services`,
     type: "website",
   },
@@ -19,20 +21,20 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   const faqItems = [
     {
-      question: "What services do you offer?",
-      answer: "We offer comprehensive residential, commercial, and emergency services. Our team is equipped to handle maintenance, repairs, and custom solutions for all your needs."
+      question: "What types of insulation do you offer?",
+      answer: "We offer a comprehensive range including Open Cell Spray Foam (our most popular), Closed Cell Spray Foam, Fiberglass, Cellulose (both attic and wall injection), Rigid Board, Mineral Wool, and Radiant Barrier insulation."
     },
     {
       question: "Do you provide free estimates?",
-      answer: "Yes, we provide free estimates for all our services. Contact us to schedule a consultation and we'll provide a detailed quote for your project."
+      answer: "Yes! We provide free estimates for all insulation projects. Our team will assess your needs and provide a detailed quote with no obligation. Call us at 510-890-7888 to schedule."
     },
     {
       question: "Are you licensed and insured?",
-      answer: "Absolutely. We are fully licensed, bonded, and insured. All our technicians are certified professionals with extensive training and experience."
+      answer: "Yes, Noble Insulation, Inc. is fully licensed, bonded, and insured. We've been serving the Bay Area since 2019 with 18+ years of industry experience."
     },
     {
       question: "What areas do you serve?",
-      answer: `We proudly serve ${siteConfig.address.city} and surrounding areas. Contact us to confirm service availability in your location.`
+      answer: "We serve the entire San Francisco Bay Area and Northern California, including South Bay, Peninsula, East Bay, North Bay, and Monterey Bay regions. Check our service areas list for specific cities."
     }
   ]
 
@@ -46,43 +48,26 @@ export default function ServicesPage() {
       />
       <FAQSchema items={faqItems} />
       <Hero
-        title="Our Professional Services"
-        description="We offer a comprehensive range of services to meet all your needs. Quality, reliability, and customer satisfaction guaranteed."
-        primaryButtonText="Get Quote"
-        primaryButtonHref="/contact"
-        secondaryButtonText="Call Us"
-        secondaryButtonHref="tel:5551234567"
+        title="Professional Insulation Services"
+        description="Specializing in Spray Foam Insulation with 18+ years of experience serving the San Francisco Bay Area"
+        primaryButtonText="Call for free estimate"
+        primaryButtonHref={`tel:${siteConfig.phone}`}
+        secondaryButtonText="Contact Us"
+        secondaryButtonHref="/contact"
+        backgroundImage="/images/service-image-1.png"
       />
       
-      <ServiceGrid />
+      <ServicesList />
       
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="bg-gray-50 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Why Choose Our Services?</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div>
-                <h3 className="font-semibold text-lg mb-2">Experienced Professionals</h3>
-                <p className="text-gray-600">Our team has over 10 years of experience in the industry.</p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg mb-2">Quality Guaranteed</h3>
-                <p className="text-gray-600">We stand behind our work with a satisfaction guarantee.</p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg mb-2">Competitive Pricing</h3>
-                <p className="text-gray-600">Fair, transparent pricing with no hidden fees.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceTestimonials />
+      
+      <ServiceAreas />
       
       <CTASection
-        title="Need a Custom Solution?"
-        description="Contact us to discuss your specific requirements."
-        buttonText="Get Custom Quote"
-        buttonHref="/contact"
+        title="Ready to Improve Your Insulation?"
+        description="Contact us today for a free consultation and estimate. Our experts will help you choose the best insulation solution for your project."
+        buttonText="Call for free estimate"
+        buttonHref={`tel:${siteConfig.phone}`}
       />
     </>
   )

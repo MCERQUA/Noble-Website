@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { Menu, X, Phone } from "lucide-react"
 import { navigation } from "@/config/navigation.config"
@@ -14,8 +15,14 @@ export function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex w-full items-center justify-between py-6">
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
-              {siteConfig.name}
+            <Link href="/" className="flex items-center">
+              <Image 
+                src="/images/noble-insulation-logo.svg" 
+                alt={siteConfig.name}
+                width={200}
+                height={60}
+                className="h-12 w-auto"
+              />
             </Link>
           </div>
           
@@ -60,7 +67,13 @@ export function Header() {
         <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
-              <span className="text-2xl font-bold">{siteConfig.name}</span>
+              <Image 
+                src="/images/noble-insulation-logo.svg" 
+                alt={siteConfig.name}
+                width={150}
+                height={45}
+                className="h-10 w-auto"
+              />
             </Link>
             <button
               type="button"

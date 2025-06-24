@@ -9,17 +9,12 @@ import { siteConfig } from "@/config/site.config"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
 import { ContactStructuredData } from "@/components/seo/ContactStructuredData"
 
-// export const metadata: Metadata = {
-//   title: "Contact Us | Local Service Company",
-//   description: "Get in touch with us for a free consultation and quote.",
-// }
+// Metadata is handled in the metadata.ts file
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
+    firstName: "",
+    contact: "",
     message: ""
   })
 
@@ -39,10 +34,8 @@ export default function ContactPage() {
       if (response.ok) {
         alert("Thank you for your message! We'll get back to you soon.")
         setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
+          firstName: "",
+          contact: "",
           message: ""
         })
       } else {
@@ -64,12 +57,13 @@ export default function ContactPage() {
     <>
       <ContactStructuredData />
       <Hero
-        title="Contact Us"
-        description="Get in touch for a free consultation and quote. We're here to help with all your service needs."
+        title="Contact Noble Insulation"
+        description="Get in touch for a free insulation consultation and estimate. Serving the San Francisco Bay Area."
         primaryButtonText="Call Now"
         primaryButtonHref={`tel:${siteConfig.phone}`}
         secondaryButtonText="Email Us"
         secondaryButtonHref={`mailto:${siteConfig.email}`}
+        backgroundImage="/images/contact-background.png"
       />
       
       <section className="py-16 px-4 sm:px-6 lg:px-8">
@@ -78,7 +72,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <Card className="p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Get a Free Quote</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Get a Free Insulation Estimate</h2>
                 <form 
                   name="contact"
                   method="POST"
@@ -90,79 +84,43 @@ export default function ContactPage() {
                   <input type="hidden" name="form-name" value="contact" />
                   <div hidden>
                     <label>
-                      Don't fill this out if you're human: <input name="bot-field" />
+                      Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
                     </label>
                   </div>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
-                      />
-                    </div>
+                  
+                  <div>
+                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
+                      Your First Name
+                    </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                    />
                   </div>
                   
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                        Service Needed
-                      </label>
-                      <select
-                        id="service"
-                        name="service"
-                        value={formData.service}
-                        onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
-                      >
-                        <option value="">Select a service</option>
-                        <option value="residential">Residential Services</option>
-                        <option value="commercial">Commercial Services</option>
-                        <option value="emergency">Emergency Services</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
+                  <div>
+                    <label htmlFor="contact" className="block text-sm font-medium text-gray-700 mb-2">
+                      Best way to reach you (Phone Number or Email) *
+                    </label>
+                    <input
+                      type="text"
+                      id="contact"
+                      name="contact"
+                      required
+                      value={formData.contact}
+                      onChange={handleChange}
+                      placeholder="555-123-4567 or email@example.com"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                    />
                   </div>
                   
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
+                      Your Message *
                     </label>
                     <textarea
                       id="message"
@@ -171,12 +129,13 @@ export default function ContactPage() {
                       required
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
+                      placeholder="Tell us about your insulation project..."
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     />
                   </div>
                   
                   <Button type="submit" size="lg" className="w-full md:w-auto">
-                    Send Message
+                    Submit
                   </Button>
                 </form>
               </Card>

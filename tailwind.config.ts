@@ -10,35 +10,35 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#0066CC",
-          50: "#E6F0FF",
-          100: "#CCE0FF",
-          200: "#99C2FF",
-          300: "#66A3FF",
-          400: "#3385FF",
-          500: "#0066CC",
-          600: "#0052A3",
-          700: "#003D7A",
-          800: "#002952",
-          900: "#001429"
+          DEFAULT: "#0d141a",
+          50: "#f3f4f5",
+          100: "#e7e9ea",
+          200: "#c3c7cb",
+          300: "#9fa5ab",
+          400: "#57616c",
+          500: "#0d141a",
+          600: "#0b1117",
+          700: "#090e13",
+          800: "#070b0f",
+          900: "#050809"
         },
         secondary: {
-          DEFAULT: "#FF6B35",
-          50: "#FFF2ED",
-          100: "#FFE5DB",
-          200: "#FFCCB8",
-          300: "#FFB294",
-          400: "#FF9970",
-          500: "#FF6B35",
-          600: "#E54D15",
-          700: "#B83C10",
-          800: "#8A2D0C",
-          900: "#5C1E08"
+          DEFAULT: "#e36b20",
+          50: "#fef8f4",
+          100: "#fdf1e9",
+          200: "#fcdcc7",
+          300: "#fac7a5",
+          400: "#f69c61",
+          500: "#e36b20",
+          600: "#cc601d",
+          700: "#aa5018",
+          800: "#883f13",
+          900: "#70340f"
         }
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        heading: ["var(--font-heading)", "system-ui", "sans-serif"],
+        sans: ["'Lato'", "system-ui", "sans-serif"],
+        heading: ["'Lato'", "system-ui", "sans-serif"],
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",

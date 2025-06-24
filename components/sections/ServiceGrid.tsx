@@ -5,27 +5,27 @@ import { ArrowRight } from "lucide-react"
 const services = [
   {
     id: "1",
-    title: "Residential Services",
-    description: "Complete solutions for your home needs. Professional, reliable, and affordable.",
-    href: "/services/residential",
+    title: "Residential Insulation",
+    description: "New Construction, ADUs, Home Improvements",
+    href: "/services#residential",
     icon: "🏠",
-    features: ["24/7 Support", "Licensed & Insured", "Free Estimates"]
+    features: ["New Construction", "ADUs", "Home Improvements", "Energy Efficiency"]
   },
   {
     id: "2", 
-    title: "Commercial Services",
-    description: "Keep your business running smoothly with our commercial service solutions.",
-    href: "/services/commercial",
+    title: "Commercial Insulation",
+    description: "Warehouses, Hotels, Commercial Buildings",
+    href: "/services#commercial",
     icon: "🏢",
-    features: ["Custom Plans", "Priority Service", "Bulk Discounts"]
+    features: ["Warehouses", "Hotels", "Office Buildings", "Custom Solutions"]
   },
   {
     id: "3",
-    title: "Emergency Services",
-    description: "Available 24/7 for urgent needs. Fast response times when you need us most.",
-    href: "/services/emergency",
-    icon: "🚨",
-    features: ["24/7 Availability", "Rapid Response", "Emergency Rates"]
+    title: "Special Projects",
+    description: "Tiny Homes, House boats, Art projects",
+    href: "/services#special",
+    icon: "✨",
+    features: ["Tiny Homes", "House Boats", "Art Projects", "Custom Installations"]
   }
 ]
 
@@ -34,9 +34,9 @@ export function ServiceGrid() {
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Our Services</h2>
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Our Insulation Services</h2>
           <p className="mt-4 text-lg text-gray-600">
-            Professional solutions tailored to your needs
+            Professional insulation solutions for every project type
           </p>
         </div>
         

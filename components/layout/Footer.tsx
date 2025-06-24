@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Star } from "lucide-react"
 import { siteConfig } from "@/config/site.config"
 import { navigation } from "@/config/navigation.config"
 
@@ -9,6 +9,7 @@ export function Footer() {
     twitter: Twitter,
     instagram: Instagram,
     linkedin: Linkedin,
+    yelp: Star,
   }
 
   return (
@@ -90,7 +91,7 @@ export function Footer() {
               })}
             </div>
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+              © {new Date().getFullYear()} {siteConfig.name}. All rights reserved. {siteConfig.established && `Est. ${siteConfig.established}`}
             </p>
           </div>
         </div>

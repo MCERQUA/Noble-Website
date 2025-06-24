@@ -51,7 +51,7 @@ export function Hero({
             {primaryButtonText}
           </Button>
           
-          <Button href={secondaryButtonHref} variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
+          <Button href={secondaryButtonHref} variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary-500">
             {secondaryButtonText}
           </Button>
         </div>
