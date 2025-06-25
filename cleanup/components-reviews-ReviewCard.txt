@@ -1,0 +1,2 @@
+# Moved file - can be deleted
+# This file was accidentally added and moved here for cleanup
