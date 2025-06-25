@@ -1,3 +1,2 @@
-export { ReviewCard } from './ReviewCard';
-export { StarRating } from './StarRating';
-export type { Review } from './ReviewCard';
+// This file was accidentally added and should be deleted
+// Moved to cleanup folder - can be removed
