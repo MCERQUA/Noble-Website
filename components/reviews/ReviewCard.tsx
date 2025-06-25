@@ -1,4 +1,5 @@
-import { Star, CheckCircle, ThumbsUp } from 'lucide-react';
+import { CheckCircle, ThumbsUp } from 'lucide-react';
+import { StarRating } from './StarRating';
 
 export interface Review {
   id: string;
@@ -58,28 +59,6 @@ export function ReviewCard({ review, className = '' }: ReviewCardProps) {
           <span>{review.helpful} people found this helpful</span>
         </div>
       )}
-    </div>
-  );
-}
-
-interface StarRatingProps {
-  rating: number;
-  className?: string;
-}
-
-export function StarRating({ rating, className = '' }: StarRatingProps) {
-  return (
-    <div className={`flex items-center ${className}`}>
-      {[1, 2, 3, 4, 5].map((star) => (
-        <Star
-          key={star}
-          className={`h-4 w-4 ${
-            star <= rating
-              ? 'text-yellow-400 fill-current'
-              : 'text-gray-300'
-          }`}
-        />
-      ))}
     </div>
   );
 }
